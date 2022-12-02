@@ -8,7 +8,6 @@ from string import ascii_lowercase, ascii_uppercase
 def get_time():
     current_time = datetime.now() - timedelta(days=randint(1, 5 * 365))
     return str(current_time).replace('-', '.')[:10]
-# print(get_time())
 
 
 def generate_alphabet():
@@ -33,25 +32,30 @@ def get_float_number_combination():
     return randint(100_000_000, 2_000_000_000) / 100_000_000
 
 
-def files_creator():
-    message = []
+def paste_data_into_line(data):
+    data.append(get_time())
+    data.append(get_random_alphabet_combination(generate_alphabet))
+    data.append(get_random_alphabet_combination(generate_russian_alphabet))
+    data.append(str(get_integer_even_number_combination()))
+    data.append(str(get_float_number_combination()).replace('.', ','))
+    return data
+
+
+def fulfill_file(file):
+    for _ in range(100_000):
+        message = []
+        paste_data_into_line(message)
+        result = '||'.join(message)
+        file.write(f'{result}\n')
+
+
+def files_creator() -> str:
     for name in range(1, 101):
         print(f'Заполняем данными файл {name}.txt')
         with open(f'{name}.txt', 'w', encoding='UTF-8') as file:
-            for _ in range(100_000):
-                message.append(get_time())
-                message.append(get_random_alphabet_combination(generate_alphabet))
-                message.append(get_random_alphabet_combination(generate_russian_alphabet))
-                message.append(str(get_integer_even_number_combination()))
-                message.append(str(get_float_number_combination()).replace('.', ','))
-                result = '||'.join(message)
-                file.write(f'{result}\n')
+            fulfill_file(file)
+    return 'All files are complete'
 
 
 if __name__ == "__main__":
     files_creator()
-
-
-# print(get_random_latin_combination())
-# print(get_random_alphabet_combination(generate_russian_alphabet))
-# print(get_float_number_combination())
