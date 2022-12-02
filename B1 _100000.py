@@ -1,8 +1,14 @@
 # Работа выполнена Каптуровым Александром
 
 from random import randint, randrange
-import datetime
+from datetime import datetime, timedelta
 from string import ascii_lowercase, ascii_uppercase
+
+
+def get_time():
+    current_time = datetime.now() - timedelta(days=randint(1, 5 * 365))
+    return str(current_time).replace('-', '.')[:10]
+# print(get_time())
 
 
 def generate_alphabet():
@@ -28,10 +34,12 @@ def get_float_number_combination():
 
 
 def files_creator():
+    message = []
     for name in range(1, 101):
+        print(f'Заполняем данными файл {name}.txt')
         with open(f'{name}.txt', 'w', encoding='UTF-8') as file:
             for _ in range(100_000):
-                message = list()
+                message.append(get_time())
                 message.append(get_random_alphabet_combination(generate_alphabet))
                 message.append(get_random_alphabet_combination(generate_russian_alphabet))
                 message.append(str(get_integer_even_number_combination()))
@@ -42,7 +50,7 @@ def files_creator():
 
 if __name__ == "__main__":
     files_creator()
-    
+
 
 # print(get_random_latin_combination())
 # print(get_random_alphabet_combination(generate_russian_alphabet))
