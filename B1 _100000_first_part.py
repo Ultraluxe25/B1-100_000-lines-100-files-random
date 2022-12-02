@@ -5,7 +5,6 @@ random set of 10 Russian characters || random positive even integer between 1 an
 random positive number with 8 decimal places in the range from 1 to 20
 
 Output sample:
-
 03.03.2015||ZAwRbpGUiK||мДМЮаНкуКД||14152932||7,87742021||
 23.01.2015||vgHKThbgrP||ЛДКХысХшЗЦ||35085588||8,49822372||
 17.10.2017||AuTVNvaGRB||мЧепрИецрА||34259646||17,7248118||
@@ -24,7 +23,7 @@ from time import time
 def get_time() -> str:
     """
     Function for finding random day in last 5 years
-    :return: random day from last 5 years
+    :return: random day
     """
     current_time = datetime.now() - timedelta(days=randint(1, 5 * 365))
     return str(current_time).replace('-', '.')[:10]
@@ -73,7 +72,7 @@ def get_float_number_combination() -> float:
     return randint(100_000_000, 2_000_000_000) / 100_000_000
 
 
-def paste_data_into_line(data: list) -> str:
+def paste_data_into_line(data: list) -> list:
     """
     Function which append five elements into temporary list
     :param data: empty list which append five elements
@@ -84,7 +83,7 @@ def paste_data_into_line(data: list) -> str:
     data.append(get_random_alphabet_combination(generate_russian_alphabet))
     data.append(str(get_integer_even_number_combination()))
     data.append(str(get_float_number_combination()).replace('.', ','))
-    return '||'.join(data)
+    return data
 
 
 def fulfill_file(file) -> None:
@@ -96,7 +95,7 @@ def fulfill_file(file) -> None:
     for _ in range(100_000):
         message = []
         paste_data_into_line(message)
-        result = paste_data_into_line(message)
+        result = '||'.join(message)
         file.write(f'{result}\n')
 
 
