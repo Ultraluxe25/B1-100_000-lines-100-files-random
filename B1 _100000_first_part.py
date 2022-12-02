@@ -73,7 +73,7 @@ def get_float_number_combination() -> float:
     return randint(100_000_000, 2_000_000_000) / 100_000_000
 
 
-def paste_data_into_line(data: list) -> list:
+def paste_data_into_line(data: list) -> str:
     """
     Function which append five elements into temporary list
     :param data: empty list which append five elements
@@ -84,7 +84,7 @@ def paste_data_into_line(data: list) -> list:
     data.append(get_random_alphabet_combination(generate_russian_alphabet))
     data.append(str(get_integer_even_number_combination()))
     data.append(str(get_float_number_combination()).replace('.', ','))
-    return data
+    return '||'.join(data)
 
 
 def fulfill_file(file) -> None:
@@ -96,7 +96,7 @@ def fulfill_file(file) -> None:
     for _ in range(100_000):
         message = []
         paste_data_into_line(message)
-        result = '||'.join(message)
+        result = paste_data_into_line(message)
         file.write(f'{result}\n')
 
 
