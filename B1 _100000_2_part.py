@@ -18,7 +18,7 @@ def show_quantity_of_pattern_match(pattern='abc') -> tuple:
     """
     pattern_match = 0
     lines_moved = 0
-    with open('second stage.txt', 'w', encoding='UTF-8') as big_file:
+    with open('second_stage.txt', 'w', encoding='UTF-8') as big_file:
         for file in range(1, 101):
             with open(f'{file}.txt', 'r', encoding='UTF-8') as current_file:
                 data = current_file.readlines()
