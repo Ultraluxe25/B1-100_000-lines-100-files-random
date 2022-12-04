@@ -13,7 +13,6 @@ def show_quantity_of_pattern_match(pattern='abc') -> tuple:
     """
     Function for building 1 big file from 100 small (10M lines)
     with opportunity for removing lines which have pattern
-
     :return: Quantity of patterns were found and moved lines
     """
     pattern_match = 0
