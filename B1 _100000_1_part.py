@@ -106,7 +106,7 @@ def files_creator() -> str:
     """
     start_time = time()
     for name in range(1, 101):
-        print(f'Заполняем данными файл {name}.txt')
+        print(f'Filling the file with data {name}.txt')
         with open(f'{name}.txt', 'w', encoding='UTF-8') as file:
             fulfill_file(file)
     end_time = time()
