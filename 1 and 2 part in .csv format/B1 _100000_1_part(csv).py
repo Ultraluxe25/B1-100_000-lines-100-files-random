@@ -105,7 +105,7 @@ def files_creator() -> str:
     :return: final phrase that shows time for execution
     """
     start_time = time()
-    for name in range(1, 2):
+    for name in range(1, 101):
         print(f'Заполняем данными файл {name}.csv')
         with open(f'{name}.csv', 'w', encoding='UTF-8') as file:
             fulfill_file(file)
