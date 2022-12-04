@@ -6,10 +6,15 @@ random set of 10 Russian characters || random positive even integer between 1 an
 random positive number with 8 decimal places in the range from 1 to 20
 
 Output sample:
+
 03.03.2015||ZAwRbpGUiK||мДМЮаНкуКД||14152932||7,87742021||
+
 23.01.2015||vgHKThbgrP||ЛДКХысХшЗЦ||35085588||8,49822372||
+
 17.10.2017||AuTVNvaGRB||мЧепрИецрА||34259646||17,7248118||
+
 24.09.2014||ArIAASwOnE||ЧпЙМдШлыфУ||23252734||14,6239438||
+
 16.10.2017||eUkiAhUWmZ||ЗэЖЫзЯШАэШ||27831190||8,10838026||
 
 2.	Implement merging of 100 files with 100K lines each into one.
