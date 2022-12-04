@@ -1,4 +1,4 @@
-# B1 100.000 lines
+# B1 10.000.000 lines of data
 
 1.	Generate 100 text files with the following structure, each containing 100,000 lines
 random date for the last 5 years || random set of 10 Latin characters ||
