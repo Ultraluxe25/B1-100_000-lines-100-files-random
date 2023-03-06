@@ -87,7 +87,7 @@ def get_float_median(data_base='B1.db') -> np.array:
         float_numbers_list = []
         for value in cur.execute('SELECT float_number FROM B1_data'):
             float_numbers_list.append(value[0])
-        return np.mean(float_numbers_list)
+        return np.median(float_numbers_list)
 
 
 if __name__ == "__main__":
